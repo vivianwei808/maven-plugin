@@ -18,9 +18,6 @@ import java.util.List;
  <groupId>com.king</groupId>
  <artifactId>king-maven-plugin</artifactId>
  <version>1.0-SNAPSHOT</version>
- <configuration>
- <path>${project.basedir}</path>
- </configuration>
  <executions>
  <execution>
  <phase>package</phase>
@@ -48,7 +45,7 @@ import java.util.List;
 @Mojo(name = "total", defaultPhase = LifecyclePhase.PACKAGE)
 public class KingMojo extends AbstractMojo {
 
-    @Parameter
+    @Parameter(defaultValue = "${project.basedir}",property = "basedir",required = true,readonly = true)
     private String path;
 
     /**
